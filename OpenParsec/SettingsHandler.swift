@@ -23,6 +23,7 @@ final class SettingsStore: ObservableObject {
 			"scrollSensitivity": 1.5,
 			"preferredFramesPerSecond": 60,
 			"showKeyboardButton": true,
+			"showVirtualGamepad": false,
 			"alwaysShowStatus": false,
 			"enablePiP": false,
 			"startMuted": false,
@@ -125,6 +126,11 @@ final class SettingsStore: ObservableObject {
 		set { store(newValue, "showKeyboardButton") }
 	}
 
+	var showVirtualGamepad: Bool {
+		get { defaults.bool(forKey: "showVirtualGamepad") }
+		set { store(newValue, "showVirtualGamepad") }
+	}
+
 	var alwaysShowStatus: Bool {
 		get { defaults.bool(forKey: "alwaysShowStatus") }
 		set { store(newValue, "alwaysShowStatus") }
@@ -183,6 +189,7 @@ struct SettingsHandler {
 	static var scrollSensitivity: Double { get { SettingsStore.shared.scrollSensitivity } set { SettingsStore.shared.scrollSensitivity = newValue } }
 	static var preferredFramesPerSecond: Int { get { SettingsStore.shared.preferredFramesPerSecond } set { SettingsStore.shared.preferredFramesPerSecond = newValue } }
 	static var showKeyboardButton: Bool { get { SettingsStore.shared.showKeyboardButton } set { SettingsStore.shared.showKeyboardButton = newValue } }
+	static var showVirtualGamepad: Bool { get { SettingsStore.shared.showVirtualGamepad } set { SettingsStore.shared.showVirtualGamepad = newValue } }
 	static var alwaysShowStatus: Bool { get { SettingsStore.shared.alwaysShowStatus } set { SettingsStore.shared.alwaysShowStatus = newValue } }
 	static var enablePiP: Bool { get { SettingsStore.shared.enablePiP } set { SettingsStore.shared.enablePiP = newValue } }
 	static var startMuted: Bool { get { SettingsStore.shared.startMuted } set { SettingsStore.shared.startMuted = newValue } }

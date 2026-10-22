@@ -238,6 +238,12 @@ struct ParsecView: View {
 				.zIndex(1)
 				.prefersPersistentSystemOverlaysHidden()
 
+			// keyboard would sit on top of the bottom half of the pad, so it gives way while typing
+			if settingsStore.showVirtualGamepad && !showKeyboard {
+				VirtualGamepadView()
+					.zIndex(1.5)
+			}
+
 			ParsecStatusBar(showMenu: $showMenu, showDCAlert: $showDCAlert, DCAlertText: $DCAlertText, parsecViewController: parsecViewController, isReconnecting: $isReconnecting, connectionLost: $connectionLost, onSilentDisconnect: { disconnect() })
 
 			if isReconnecting || connectionLost {

@@ -92,6 +92,13 @@ struct SettingsView: View {
 									.frame(width: 80)
 							}
 						}
+						CatTitle("Controller")
+						CatList {
+							CatItem("On-Screen Gamepad") {
+								Toggle("", isOn: $settings.showVirtualGamepad)
+									.frame(width: 80)
+							}
+						}
 						CatTitle("Video")
 						CatList {
 							CatItem("Renderer") {
